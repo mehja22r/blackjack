@@ -12,8 +12,8 @@
     tools:context="com.example.demouser.blackjack.MainActivity">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
         app:srcCompat="@drawable/j"
         android:layout_marginLeft="13dp"
         android:layout_marginStart="13dp"
@@ -23,8 +23,8 @@
         android:layout_toEndOf="@+id/p1" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
         app:srcCompat="@drawable/j"
         android:layout_marginBottom="17dp"
         android:id="@+id/p1"
@@ -35,8 +35,8 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
         app:srcCompat="@drawable/j"
         android:id="@+id/p3"
         android:layout_above="@+id/p1"
@@ -47,8 +47,8 @@
         android:layout_toStartOf="@+id/d2" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
         app:srcCompat="@drawable/j"
         android:id="@+id/p6"
         android:layout_alignTop="@+id/p5"
@@ -56,8 +56,8 @@
         android:layout_alignParentEnd="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
         app:srcCompat="@drawable/j"
         android:id="@+id/d5"
         android:layout_alignParentTop="true"
@@ -66,8 +66,8 @@
         android:layout_alignBottom="@+id/d4" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
         app:srcCompat="@drawable/j"
         android:id="@+id/d4"
         android:layout_alignParentTop="true"
@@ -75,8 +75,8 @@
         android:layout_toEndOf="@+id/d3" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
         app:srcCompat="@drawable/j"
         android:id="@+id/d2"
         android:layout_alignParentTop="true"
@@ -84,8 +84,8 @@
         android:layout_toEndOf="@+id/d1" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
         app:srcCompat="@drawable/j"
         android:id="@+id/d1"
         android:layout_alignParentTop="true"
@@ -113,8 +113,8 @@
         tools:text="bet" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
         app:srcCompat="@drawable/j"
         android:id="@+id/d3"
         android:layout_alignParentTop="true"
@@ -188,8 +188,8 @@
         android:text="double" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
         app:srcCompat="@drawable/j"
         android:id="@+id/p5"
         android:layout_alignTop="@+id/p4"
@@ -199,8 +199,8 @@
         android:layout_marginStart="12dp" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
         app:srcCompat="@drawable/j"
         android:id="@+id/p4"
         android:layout_below="@+id/dealButton"
