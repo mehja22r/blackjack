@@ -143,27 +143,18 @@ public class MainActivity extends AppCompatActivity {
             d5.setImageResource(R.drawable.j);
         }
 
-        for (int j = 0;j < blackjack.getDealerCards().size(); j++) {
-            int cardValue = blackjack.getDealerCards().get(j).getValue();
-            int cardShape = blackjack.getDealerCards().get(j).getShape();
+        //for (int j = 0;j < blackjack.getDealerCards().size(); j++) {
+            int cardValue = blackjack.getDealerCards().get(0).getValue();
+            int cardShape = blackjack.getDealerCards().get(0).getShape();
 
-            if (j==0)
+
                 showCard(d1, cardValue, cardShape);
-            else if (j==1)
-                showCard(d2, cardValue, cardShape);
-            else if (j==2)
-                showCard(d3, cardValue, cardShape);
-            else if (j==3)
-                showCard(d4, cardValue, cardShape);
-            else if (j==4)
-                showCard(d5, cardValue, cardShape);
-        }
 
         if (blackjack.revealDealerCards == true) {
             for (int j = 1; j < blackjack.getDealerCards().size(); j++) {
 
-                int cardValue = blackjack.getDealerCards().get(j).getValue();
-                int cardShape = blackjack.getDealerCards().get(j).getShape();
+                cardValue = blackjack.getDealerCards().get(j).getValue();
+                cardShape = blackjack.getDealerCards().get(j).getShape();
 
                 if (j == 1)
                     showCard(d2, cardValue, cardShape);
