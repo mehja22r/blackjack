@@ -222,6 +222,7 @@
         android:id="@+id/p5"
         android:layout_alignTop="@+id/p4"
         android:layout_alignLeft="@+id/standButton"
-        android:layout_alignStart="@+id/standButton" />
+        android:layout_alignStart="@+id/standButton"
+        android:layout_alignBottom="@+id/p4" />
 
 </RelativeLayout>
