@@ -8,7 +8,7 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Blackjack blackjack;
+    private Blackjack blackjack = new Blackjack();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
