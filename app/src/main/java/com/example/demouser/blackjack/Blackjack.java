@@ -34,7 +34,7 @@ public class Blackjack {
 
     public void startGame() {
 
-        betGame(0);
+        //betGame(0);
 
         playerCards.add(deck.drawCard());
         playerCards.add(deck.drawCard());

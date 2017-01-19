@@ -1,9 +1,6 @@
 package com.example.demouser.blackjack;
 import android.widget.ImageView;
 
-import javax.swing.*;
-
-
 /**
  * Holds methods for each card.
  */

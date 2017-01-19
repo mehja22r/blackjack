@@ -2,6 +2,8 @@ package com.example.demouser.blackjack;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,13 +15,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ((Button)findViewById(R.id.dealButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                blackjack.startGame();
+                paintCard();
+            }
+        });
+
+        ((Button)findViewById(R.id.hitButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                blackjack.hit();
+            }
+        });
+
+        ((Button)findViewById(R.id.standButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                blackjack.stand();
+            }
+        });
+
     }
 
     public void paintCard() {
-
-        int cardValue = blackjack.getPlayerCards().get(0).getValue();
-        int cardShape = blackjack.getPlayerCards().get(0).getShape();
-
         ImageView p1 = ((ImageView) findViewById(R.id.p1));
         ImageView p2 = ((ImageView) findViewById(R.id.p2));
         ImageView p3 = ((ImageView) findViewById(R.id.p3));
@@ -32,34 +52,32 @@ public class MainActivity extends AppCompatActivity {
         ImageView d3 = ((ImageView) findViewById(R.id.d3));
         ImageView d4 = ((ImageView) findViewById(R.id.d4));
         ImageView d5 = ((ImageView) findViewById(R.id.d5));
+
         //for loop
         for (int i = 0; i < blackjack.getPlayerCards().size(); i++) {
-            cardValue = blackjack.getPlayerCards().get(i).getValue();
-            cardShape = blackjack.getPlayerCards().get(i).getShape();
 
-            if (i ==1) {
+            int cardValue = blackjack.getPlayerCards().get(i).getValue();
+            int cardShape = blackjack.getPlayerCards().get(i).getShape();
+
+            if (i==0)
+                showCard(p1,cardValue,cardShape);
+            else if (i ==1)
                 showCard(p2, cardValue, cardShape);
-            }
-            else if (i == 2) {
+            else if (i == 2)
                 showCard(p3, cardValue, cardShape);
-            }
-            else if (i == 3) {
+            else if (i == 3)
                 showCard(p4, cardValue, cardShape);
-            }
-            else if (i==4) {
+            else if (i==4)
                 showCard(p5, cardValue, cardShape);
-            }
-            else if (i==5) {
+            else if (i==5)
                 showCard(p6, cardValue, cardShape);
-            }
-            else if (i==6) {
+            else if (i==6)
                 showCard(p6, cardValue, cardShape);
-            }
         }
 
         for (int j = 0;j < blackjack.getDealerCards().size(); j++) {
-            cardValue = blackjack.getDealerCards().get(j).getValue();
-            cardShape = blackjack.getDealerCards().get(j).getShape();
+            int cardValue = blackjack.getDealerCards().get(j).getValue();
+            int cardShape = blackjack.getDealerCards().get(j).getShape();
 
             if (j==1)
                 showCard(d1, cardValue, cardShape);
