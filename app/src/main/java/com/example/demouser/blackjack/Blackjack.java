@@ -18,6 +18,7 @@ public class Blackjack {
     private final int MAX_BET = 500;
     private final int MIN_BET = 10;
     protected int currentBet;
+    boolean revealDealerCards = false;
 
     //cannot exceed 5
     private int hitCount;
@@ -46,10 +47,12 @@ public class Blackjack {
     public void checkTurn() {
         //dealer wins
         if (playerScore()>21 && dealerScore() <=21) {
+            revealDealerCards = true;
             dealerWins();
         }
         //player wins
         else if (dealerScore() > 21 && playerScore() <= 21) {
+            revealDealerCards = true;
             playerWins();
         }
     }
@@ -67,12 +70,15 @@ public class Blackjack {
 
         if (pScore>dScore) {
             dealerWins();
+            revealDealerCards = true;
         }
         else if (dScore > pScore) {
+            revealDealerCards = true;
             playerWins();
         }
         //what if score is the same
         else {
+            revealDealerCards = true;
             tie();
 
         }

@@ -94,7 +94,11 @@ public class MainActivity extends AppCompatActivity {
                 showCard(p6, cardValue, cardShape);
         }
 
-        for (int j = 0;j < blackjack.getDealerCards().size(); j++) {
+        int cardValue = blackjack.getDealerCards().get(0).getValue();
+        int cardShape = blackjack.getDealerCards().get(0).getShape();
+        showCard(d1, cardValue, cardShape);
+
+        /**for (int j = 0;j < blackjack.getDealerCards().size(); j++) {
             int cardValue = blackjack.getDealerCards().get(j).getValue();
             int cardShape = blackjack.getDealerCards().get(j).getShape();
 
@@ -108,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 showCard(d4, cardValue, cardShape);
             else if (j==4)
                 showCard(d5, cardValue, cardShape);
-        }
+        }**/
     }
 
         public void showCard(ImageView p1, int cardValue, int cardShape) {
