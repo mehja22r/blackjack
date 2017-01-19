@@ -68,15 +68,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/j"
-        android:id="@+id/p6"
-        android:layout_alignTop="@+id/p5"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/j"
         android:id="@+id/d5"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
@@ -121,15 +112,6 @@
         android:layout_alignLeft="@+id/p5"
         android:layout_alignStart="@+id/p5" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/p2"
-        android:layout_alignRight="@+id/standButton"
-        android:layout_alignEnd="@+id/standButton"
-        android:id="@+id/bet"
-        tools:text="bet" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -137,18 +119,6 @@
         android:id="@+id/d3"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Enter bet"
-        android:ems="10"
-        android:layout_above="@+id/bet"
-        android:layout_alignLeft="@+id/p5"
-        android:layout_alignStart="@+id/p5"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/enterBet" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -204,4 +174,46 @@
         android:layout_marginStart="6dp"
         android:layout_alignBottom="@+id/standButton"
         android:text="double" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bet"
+        tools:text="bet"
+        android:layout_below="@+id/enterBet"
+        android:layout_toRightOf="@+id/hitButton"
+        android:layout_toEndOf="@+id/hitButton" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Enter bet"
+        android:ems="10"
+        android:id="@+id/enterBet"
+        android:layout_marginTop="10dp"
+        android:layout_alignTop="@+id/p2"
+        android:layout_alignLeft="@+id/p5"
+        android:layout_alignStart="@+id/p5" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/j"
+        android:id="@+id/p6"
+        android:layout_alignTop="@+id/p5"
+        android:layout_toRightOf="@+id/standButton"
+        android:layout_toEndOf="@+id/standButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/d1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="58dp"
+        android:id="@+id/resultMessage"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        tools:text="resultMessage" />
 </RelativeLayout>
