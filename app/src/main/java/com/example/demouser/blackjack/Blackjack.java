@@ -35,7 +35,7 @@ public class Blackjack {
 
     public void startGame() {
 
-        //betGame(0);
+        betGame();
 
         playerCards.add(deck.drawCard());
         playerCards.add(deck.drawCard());
@@ -57,9 +57,8 @@ public class Blackjack {
         }
     }
 
-    public void betGame(int betAmount) {
-        currentBet = betAmount;
-        bet = bet - betAmount;
+    public void betGame() {
+        bet = bet - currentBet;
     }
 
     public void stand() {
