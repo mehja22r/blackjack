@@ -50,7 +50,6 @@
         android:layout_width="80dp"
         android:layout_height="90dp"
         app:srcCompat="@drawable/j"
-<<<<<<< HEAD
         android:id="@+id/p6"
         android:layout_alignTop="@+id/p5"
         android:layout_alignParentRight="true"
@@ -60,8 +59,6 @@
         android:layout_width="80dp"
         android:layout_height="90dp"
         app:srcCompat="@drawable/j"
-=======
->>>>>>> origin/master
         android:id="@+id/d5"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
@@ -169,7 +166,6 @@
         android:layout_alignBottom="@+id/standButton"
         android:text="double" />
 
-<<<<<<< HEAD
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -178,30 +174,6 @@
         android:layout_below="@+id/enterBet"
         android:layout_toRightOf="@+id/hitButton"
         android:layout_toEndOf="@+id/hitButton" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Enter bet"
-        android:ems="10"
-        android:id="@+id/enterBet"
-        android:layout_marginTop="10dp"
-        android:layout_alignTop="@+id/p2"
-        android:layout_alignLeft="@+id/p5"
-        android:layout_alignStart="@+id/p5" />
-
-=======
->>>>>>> origin/master
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="90dp"
-        app:srcCompat="@drawable/j"
-<<<<<<< HEAD
-        android:id="@+id/p6"
-        android:layout_alignTop="@+id/p5"
-        android:layout_toRightOf="@+id/standButton"
-        android:layout_toEndOf="@+id/standButton" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -214,7 +186,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         tools:text="resultMessage" />
-=======
+
         android:id="@+id/p5"
         android:layout_alignTop="@+id/p4"
         android:layout_toRightOf="@+id/p4"
@@ -230,5 +202,26 @@
         android:layout_below="@+id/dealButton"
         android:layout_alignLeft="@+id/p2"
         android:layout_alignStart="@+id/p2" />
->>>>>>> origin/master
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Enter bet"
+        android:ems="10"
+        android:id="@+id/enterBet"
+        android:layout_alignBottom="@+id/p2"
+        android:layout_alignLeft="@+id/bet"
+        android:layout_alignStart="@+id/bet"
+        android:layout_marginBottom="21dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/j"
+        android:id="@+id/p5"
+        android:layout_alignTop="@+id/p4"
+        android:layout_alignLeft="@+id/standButton"
+        android:layout_alignStart="@+id/standButton" />
+
 </RelativeLayout>
