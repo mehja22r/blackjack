@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView playerTotalText;
     private TextView dealerTotalText;
     private EditText enterBetText;
+    private TextView betText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
         playerTotalText = (TextView) findViewById(R.id.playerTotal);
         dealerTotalText = (TextView) findViewById(R.id.dealerTotal);
         enterBetText = (EditText) findViewById(R.id.enterBet);
+        betText = (TextView) findViewById(R.id.bet);
+
+        playerTotalText.setText("Player: " + String.valueOf(blackjack.playerScore()));
+        dealerTotalText.setText("Dealer: ?");
+        betText.setText("Bet: " + String.valueOf(blackjack.bet));
 
         ((Button)findViewById(R.id.dealButton)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 getBet();
                 blackjack.startGame();
                 paintCard();
+                updateView();
             }
         });
 
@@ -43,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 blackjack.hit();
+                paintCard();
+                updateView();
+                dealerTotalText.setText("Dealer: ?");
             }
         });
 
@@ -50,6 +60,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 blackjack.stand();
+                updateView();
+                dealerTotalText.setText("Dealer: " + String.valueOf(blackjack.dealerScore()));
+                //add functionality to end the round
+                //TextView result = (TextView) findViewById(R.id.resultMessage);
+                //result.setText();
+
+                //clear the deck
+                blackjack.getPlayerCards().clear();
+                blackjack.getDealerCards().clear();
+                paintCard();
             }
         });
 
@@ -57,12 +77,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 blackjack.doubleBet();
+                betText.setText("Bet: " + String.valueOf(blackjack.bet));
             }
         });
     }
 
     public void getBet() {
         blackjack.currentBet = Integer.parseInt(enterBetText.getText().toString());
+        //add functionality for max and min bet
+    }
+
+    public void updateView() {
+        playerTotalText.setText("Player: " + String.valueOf(blackjack.playerScore()));
+        betText.setText("Bet: " + String.valueOf(blackjack.bet));
     }
 
     public void paintCard() {
@@ -78,6 +105,15 @@ public class MainActivity extends AppCompatActivity {
         ImageView d3 = ((ImageView) findViewById(R.id.d3));
         ImageView d4 = ((ImageView) findViewById(R.id.d4));
         ImageView d5 = ((ImageView) findViewById(R.id.d5));
+
+        if (blackjack.getPlayerCards().isEmpty()) {
+            p1.setImageResource(R.drawable.j);
+            p2.setImageResource(R.drawable.j);
+            p3.setImageResource(R.drawable.j);
+            p4.setImageResource(R.drawable.j);
+            p5.setImageResource(R.drawable.j);
+            p6.setImageResource(R.drawable.j);
+        }
 
         //for loop
         for (int i = 0; i < blackjack.getPlayerCards().size(); i++) {
@@ -99,10 +135,30 @@ public class MainActivity extends AppCompatActivity {
                 showCard(p6, cardValue, cardShape);
         }
 
-        int cardValue = blackjack.getDealerCards().get(0).getValue();
-        int cardShape = blackjack.getDealerCards().get(0).getShape();
-        showCard(d1, cardValue, cardShape);
+        if (blackjack.getDealerCards().isEmpty()) {
+            d1.setImageResource(R.drawable.j);
+            d2.setImageResource(R.drawable.j);
+            d3.setImageResource(R.drawable.j);
+            d4.setImageResource(R.drawable.j);
+            d5.setImageResource(R.drawable.j);
+        }
 
+<<<<<<< HEAD
+        for (int j = 0;j < blackjack.getDealerCards().size(); j++) {
+            int cardValue = blackjack.getDealerCards().get(j).getValue();
+            int cardShape = blackjack.getDealerCards().get(j).getShape();
+
+            if (j==0)
+                showCard(d1, cardValue, cardShape);
+            else if (j==1)
+                showCard(d2, cardValue, cardShape);
+            else if (j==2)
+                showCard(d3, cardValue, cardShape);
+            else if (j==3)
+                showCard(d4, cardValue, cardShape);
+            else if (j==4)
+                showCard(d5, cardValue, cardShape);
+=======
         if (blackjack.revealDealerCards == true) {
             for (int j = 1; j < blackjack.getDealerCards().size(); j++) {
                 cardValue = blackjack.getDealerCards().get(j).getValue();
@@ -117,10 +173,11 @@ public class MainActivity extends AppCompatActivity {
                 else if (j == 4)
                     showCard(d5, cardValue, cardShape);
             }
+>>>>>>> origin/master
         }
     }
 
-        public void showCard(ImageView p1, int cardValue, int cardShape) {
+    public void showCard(ImageView p1, int cardValue, int cardShape) {
         if (cardValue == 0 && cardShape == 0)
             p1.setImageResource(R.drawable.c2);
         else if (cardValue==0 && cardShape==1)

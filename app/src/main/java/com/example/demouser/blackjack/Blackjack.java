@@ -14,7 +14,7 @@ public class Blackjack {
     private ArrayList<Card> playerCards = new ArrayList<Card>();
     private ArrayList<Card> dealerCards = new ArrayList<Card>();
 
-    private int bet;
+    protected int bet;
     private final int MAX_BET = 500;
     private final int MIN_BET = 10;
     protected int currentBet;
@@ -79,18 +79,20 @@ public class Blackjack {
             tie();
 
         }
-
     }
 
-    public void tie() {
+    public String tie() {
         bet = bet + currentBet;
+        return "Push!";
     }
 
-    public void dealerWins() {
+    public String dealerWins() {
+        return "Dealer won!";
     }
 
-    public void playerWins() {
+    public String playerWins() {
         bet += currentBet *2;
+        return "Player won!";
     }
 
     public void hit() {
