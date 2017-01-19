@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -15,6 +16,7 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
         ((ImageView) findViewById(R.id.blackjackImage)).setImageResource(R.drawable.blackjack_display);
+        ((TextView)findViewById(R.id.blackjackText)).setText("BLACKJACK");
 
         ((Button) findViewById(R.id.playButton)).setOnClickListener(new View.OnClickListener() {
             @Override

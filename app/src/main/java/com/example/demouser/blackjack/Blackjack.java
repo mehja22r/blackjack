@@ -22,7 +22,6 @@ public class Blackjack {
 
     //cannot exceed 5
     private int hitCount;
-    private boolean doubleBetBoolean;
 
 
     public Blackjack() {
@@ -30,7 +29,6 @@ public class Blackjack {
         bet = 1000;
 
         hitCount = 0;
-        doubleBetBoolean = false;
     }
 
     public void startGame() {
@@ -108,7 +106,6 @@ public class Blackjack {
 
     public void doubleBet() {
         checkTurn();
-        doubleBetBoolean = true;
         bet = bet * 2;
         playerCards.add(deck.drawCard());
         stand();
