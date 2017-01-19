@@ -118,4 +118,33 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="stand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/hitButton"
+        android:layout_toRightOf="@+id/p5"
+        android:layout_toEndOf="@+id/p5"
+        android:id="@+id/standButton" />
+
+    <Button
+        android:text="deal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
+        android:id="@+id/dealButton"
+        android:layout_above="@+id/p3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="hit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hitButton"
+        android:layout_alignBaseline="@+id/dealButton"
+        android:layout_alignBottom="@+id/dealButton"
+        android:layout_toLeftOf="@+id/d4"
+        android:layout_toStartOf="@+id/d4" />
 </RelativeLayout>
