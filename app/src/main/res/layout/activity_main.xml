@@ -96,15 +96,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/j"
-        android:id="@+id/d3"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/d2"
-        android:layout_toEndOf="@+id/d2" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/j"
         android:id="@+id/d2"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/d1"
@@ -118,45 +109,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="stand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/hitButton"
-        android:layout_toRightOf="@+id/p5"
-        android:layout_toEndOf="@+id/p5"
-        android:id="@+id/standButton" />
-
-    <Button
-        android:text="deal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="13dp"
-        android:id="@+id/dealButton"
-        android:layout_above="@+id/p3"
-        android:layout_toLeftOf="@+id/p4"
-        android:layout_toStartOf="@+id/p4" />
-
-    <Button
-        android:text="hit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/hitButton"
-        android:layout_alignBaseline="@+id/dealButton"
-        android:layout_alignBottom="@+id/dealButton"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/dealButton"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/playerTotal"
-        android:layout_toLeftOf="@+id/p5"
-        tools:text="playerTotal"
-        android:layout_alignLeft="@+id/p3"
-        android:layout_alignStart="@+id/p3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -177,4 +129,79 @@
         android:layout_alignEnd="@+id/standButton"
         android:id="@+id/bet"
         tools:text="bet" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/j"
+        android:id="@+id/d3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Enter bet"
+        android:ems="10"
+        android:layout_above="@+id/bet"
+        android:layout_alignLeft="@+id/p5"
+        android:layout_alignStart="@+id/p5"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/enterBet" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:id="@+id/playerTotal"
+        tools:text="playerTotal"
+        android:layout_above="@+id/dealButton"
+        android:layout_alignLeft="@+id/p3"
+        android:layout_alignStart="@+id/p3" />
+
+    <Button
+        android:text="deal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dealButton"
+        android:layout_above="@+id/p3"
+        android:layout_toLeftOf="@+id/p4"
+        android:layout_toStartOf="@+id/p4"
+        android:layout_marginBottom="13dp" />
+
+    <Button
+        android:text="hit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hitButton"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_alignBaseline="@+id/dealButton"
+        android:layout_alignBottom="@+id/dealButton"
+        android:layout_toRightOf="@+id/dealButton"
+        android:layout_toEndOf="@+id/dealButton" />
+
+    <Button
+        android:text="stand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/standButton"
+        android:layout_alignBaseline="@+id/hitButton"
+        android:layout_alignBottom="@+id/hitButton"
+        android:layout_toRightOf="@+id/hitButton"
+        android:layout_toEndOf="@+id/hitButton"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/doubleButton"
+        android:layout_toRightOf="@+id/d4"
+        android:layout_toEndOf="@+id/d4"
+        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp"
+        android:layout_alignBottom="@+id/standButton"
+        android:text="double" />
 </RelativeLayout>

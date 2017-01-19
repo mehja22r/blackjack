@@ -4,16 +4,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private Blackjack blackjack = new Blackjack();
 
+    private TextView playerTotalText;
+    private TextView dealerTotalText;
+    private EditText enterBetText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        blackjack = new Blackjack();
+        playerTotalText = (TextView) findViewById(R.id.playerTotal);
+        dealerTotalText = (TextView) findViewById(R.id.dealerTotal);
+        enterBetText = (EditText) findViewById(R.id.enterBet);
 
         ((Button)findViewById(R.id.dealButton)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +48,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ((Button)findViewById(R.id.doubleButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                blackjack.doubleBet();
+            }
+        });
+    }
+
+    public void getBet() {
+        blackjack.currentBet = Integer.parseInt(enterBetText.getText().toString());
     }
 
     public void paintCard() {
@@ -71,23 +92,21 @@ public class MainActivity extends AppCompatActivity {
                 showCard(p5, cardValue, cardShape);
             else if (i==5)
                 showCard(p6, cardValue, cardShape);
-            else if (i==6)
-                showCard(p6, cardValue, cardShape);
         }
 
         for (int j = 0;j < blackjack.getDealerCards().size(); j++) {
             int cardValue = blackjack.getDealerCards().get(j).getValue();
             int cardShape = blackjack.getDealerCards().get(j).getShape();
 
-            if (j==1)
+            if (j==0)
                 showCard(d1, cardValue, cardShape);
-            else if (j==2)
+            else if (j==1)
                 showCard(d2, cardValue, cardShape);
-            else if (j==3)
+            else if (j==2)
                 showCard(d3, cardValue, cardShape);
-            else if (j==4)
+            else if (j==3)
                 showCard(d4, cardValue, cardShape);
-            else if (j==5)
+            else if (j==4)
                 showCard(d5, cardValue, cardShape);
         }
     }

@@ -9,19 +9,19 @@ import java.util.PriorityQueue;
 
 public class Blackjack {
 
-    Deck deck;
+    private Deck deck;
 
-    ArrayList<Card> playerCards = new ArrayList<Card>();
-    ArrayList<Card> dealerCards = new ArrayList<Card>();
+    private ArrayList<Card> playerCards = new ArrayList<Card>();
+    private ArrayList<Card> dealerCards = new ArrayList<Card>();
 
-    int bet;
-    final int MAX_BET = 500;
-    final int MIN_BET = 10;
-    int currentBet;
+    private int bet;
+    private final int MAX_BET = 500;
+    private final int MIN_BET = 10;
+    protected int currentBet;
 
     //cannot exceed 5
-    int hitCount;
-    boolean doubleBetBoolean;
+    private int hitCount;
+    private boolean doubleBetBoolean;
 
 
     public Blackjack() {
@@ -41,8 +41,6 @@ public class Blackjack {
 
         dealerCards.add(deck.drawCard());
         dealerCards.add(deck.drawCard());
-
-
     }
 
     public void checkTurn() {
@@ -91,7 +89,6 @@ public class Blackjack {
     public void playerWins() {
         bet += currentBet *2;
     }
-
 
     public void hit() {
         checkTurn();
