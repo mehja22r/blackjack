@@ -42,27 +42,9 @@
         android:layout_above="@+id/p1"
         android:layout_alignLeft="@+id/p1"
         android:layout_alignStart="@+id/p1"
-        android:layout_marginBottom="15dp" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/j"
-        android:id="@+id/p4"
-        android:layout_alignTop="@+id/p3"
-        android:layout_alignLeft="@+id/p2"
-        android:layout_alignStart="@+id/p2" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/j"
-        android:layout_alignTop="@+id/p4"
-        android:layout_toRightOf="@+id/p4"
-        android:layout_toEndOf="@+id/p4"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp"
-        android:id="@+id/p5" />
+        android:layout_marginBottom="15dp"
+        android:layout_toLeftOf="@+id/d2"
+        android:layout_toStartOf="@+id/d2" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -175,6 +157,7 @@
         android:layout_alignBottom="@+id/standButton"
         android:text="double" />
 
+<<<<<<< HEAD
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -196,10 +179,13 @@
         android:layout_alignLeft="@+id/p5"
         android:layout_alignStart="@+id/p5" />
 
+=======
+>>>>>>> origin/master
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/j"
+<<<<<<< HEAD
         android:id="@+id/p6"
         android:layout_alignTop="@+id/p5"
         android:layout_toRightOf="@+id/standButton"
@@ -216,4 +202,21 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         tools:text="resultMessage" />
+=======
+        android:id="@+id/p5"
+        android:layout_alignTop="@+id/p4"
+        android:layout_toRightOf="@+id/p4"
+        android:layout_toEndOf="@+id/p4"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/j"
+        android:id="@+id/p4"
+        android:layout_below="@+id/dealButton"
+        android:layout_alignLeft="@+id/p2"
+        android:layout_alignStart="@+id/p2" />
+>>>>>>> origin/master
 </RelativeLayout>
