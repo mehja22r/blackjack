@@ -143,7 +143,6 @@ public class MainActivity extends AppCompatActivity {
             d5.setImageResource(R.drawable.j);
         }
 
-<<<<<<< HEAD
         for (int j = 0;j < blackjack.getDealerCards().size(); j++) {
             int cardValue = blackjack.getDealerCards().get(j).getValue();
             int cardShape = blackjack.getDealerCards().get(j).getShape();
@@ -158,11 +157,13 @@ public class MainActivity extends AppCompatActivity {
                 showCard(d4, cardValue, cardShape);
             else if (j==4)
                 showCard(d5, cardValue, cardShape);
-=======
+        }
+
         if (blackjack.revealDealerCards == true) {
             for (int j = 1; j < blackjack.getDealerCards().size(); j++) {
-                cardValue = blackjack.getDealerCards().get(j).getValue();
-                cardShape = blackjack.getDealerCards().get(j).getShape();
+
+                int cardValue = blackjack.getDealerCards().get(j).getValue();
+                int cardShape = blackjack.getDealerCards().get(j).getShape();
 
                 if (j == 1)
                     showCard(d2, cardValue, cardShape);
@@ -173,7 +174,6 @@ public class MainActivity extends AppCompatActivity {
                 else if (j == 4)
                     showCard(d5, cardValue, cardShape);
             }
->>>>>>> origin/master
         }
     }
 
