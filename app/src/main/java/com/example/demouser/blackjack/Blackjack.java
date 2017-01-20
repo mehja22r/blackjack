@@ -15,23 +15,18 @@ public class Blackjack {
     private ArrayList<Card> dealerCards = new ArrayList<Card>();
 
     protected int bet;
-    private final int MAX_BET = 500;
-    private final int MIN_BET = 10;
     protected int currentBet;
-    boolean revealDealerCards = false;
+//    boolean revealDealerCards = false;
 
-    //cannot exceed 5
-    private int hitCount;
 
 
     public Blackjack() {
         deck = new Deck();
         bet = 1000;
-
-        hitCount = 0;
     }
 
     public void startGame() {
+        deck = new Deck();
 
         betGame();
 
@@ -39,18 +34,18 @@ public class Blackjack {
         playerCards.add(deck.drawCard());
 
         dealerCards.add(deck.drawCard());
-        dealerCards.add(deck.drawCard());
+        //dealerCards.add(deck.drawCard());
     }
 
     public void checkTurn() {
         //dealer wins
         if (playerScore()>21 && dealerScore() <=21) {
-            revealDealerCards = true;
+//            revealDealerCards = true;
             dealerWins();
         }
         //player wins
         else if (dealerScore() > 21 && playerScore() <= 21) {
-            revealDealerCards = true;
+//            revealDealerCards = true;
             playerWins();
         }
     }
@@ -60,24 +55,29 @@ public class Blackjack {
     }
 
     public void stand() {
+        dealerCards.add(deck.drawCard());
         checkTurn();
         dealerTurn();
         int pScore  = 21 - playerScore();
         int dScore = 21 - dealerScore();
 
-        if (pScore>dScore) {
+        if (playerScore() > 21)
             dealerWins();
-            revealDealerCards = true;
+        else if (dealerScore() > 21)
+            playerWins();
+
+        else if (pScore>dScore) {
+            dealerWins();
+//            revealDealerCards = true;
         }
         else if (dScore > pScore) {
-            revealDealerCards = true;
+//            revealDealerCards = true;
             playerWins();
         }
         //what if score is the same
-        else {
-            revealDealerCards = true;
+        else if (dealerScore() == playerScore()){
+//            revealDealerCards = true;
             tie();
-
         }
     }
 
@@ -97,20 +97,33 @@ public class Blackjack {
 
     public void hit() {
         checkTurn();
-        if (hitCount < 5) {
-            playerCards.add(deck.drawCard());
-            hitCount++;
-        }
-        else {
-            System.out.println("Cannot hit more than five times");
-        }
+        playerCards.add(deck.drawCard());
     }
 
     public void doubleBet() {
         checkTurn();
-        bet = bet * 2;
+        //currentBet = currentBet * 2;
+        //bet = bet - currentBet;
         playerCards.add(deck.drawCard());
-        stand();
+        dealerTurn();
+        int pScore  = 21 - playerScore();
+        int dScore = 21 - dealerScore();
+
+        if (playerScore() > 21)
+            dealerWins();
+        else if (dealerScore() > 21)
+            playerWins();
+
+        else if (pScore>dScore) {
+            dealerWins();
+        }
+        else if (dScore > pScore) {
+            playerWins();
+        }
+        //what if score is the same
+        else if (dealerScore() == playerScore()){
+            tie();
+        }
     }
 
     public void dealerTurn() {
@@ -120,12 +133,10 @@ public class Blackjack {
     }
 
     public ArrayList<Card> getPlayerCards() {
-
         return playerCards;
     }
 
     public ArrayList<Card> getDealerCards() {
-
         return dealerCards;
     }
 

@@ -14,17 +14,43 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Blackjack blackjack = new Blackjack();
+    private Blackjack blackjack;
 
     private TextView playerTotalText;
     private TextView dealerTotalText;
     private EditText enterBetText;
     private TextView betText;
 
+    ImageView p1;
+    ImageView p2;
+    ImageView p3;
+    ImageView p4;
+    ImageView p5;
+    ImageView p6;
+
+    ImageView d1;
+    ImageView d2;
+    ImageView d3;
+    ImageView d4;
+    ImageView d5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        p1 = ((ImageView) findViewById(R.id.p1));
+        p2 = ((ImageView) findViewById(R.id.p2));
+        p3 = ((ImageView) findViewById(R.id.p3));
+        p4 = ((ImageView) findViewById(R.id.p4));
+        p5 = ((ImageView) findViewById(R.id.p5));
+        p6 = ((ImageView) findViewById(R.id.p6));
+
+        d1 = ((ImageView) findViewById(R.id.d1));
+        d2 = ((ImageView) findViewById(R.id.d2));
+        d3 = ((ImageView) findViewById(R.id.d3));
+        d4 = ((ImageView) findViewById(R.id.d4));
+        d5 = ((ImageView) findViewById(R.id.d5));
 
         blackjack = new Blackjack();
         playerTotalText = (TextView) findViewById(R.id.playerTotal);
@@ -33,12 +59,16 @@ public class MainActivity extends AppCompatActivity {
         betText = (TextView) findViewById(R.id.bet);
 
         playerTotalText.setText("Player: " + String.valueOf(blackjack.playerScore()));
-        dealerTotalText.setText("Dealer: ?");
+        dealerTotalText.setText("Dealer: 0");
         betText.setText("Bet: " + String.valueOf(blackjack.bet));
 
         ((Button)findViewById(R.id.dealButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dealerTotalText.setText("Dealer: " + String.valueOf(blackjack.dealerScore()));
+                if (blackjack.getDealerCards().isEmpty() && blackjack.getPlayerCards().isEmpty())
+                    paintEmpty();
+
                 getBet();
                 blackjack.startGame();
                 paintCard();
@@ -52,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
                 blackjack.hit();
                 paintCard();
                 updateView();
-                dealerTotalText.setText("Dealer: ?");
             }
         });
 
@@ -60,24 +89,35 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 blackjack.stand();
+                paintCard();
+
                 updateView();
                 dealerTotalText.setText("Dealer: " + String.valueOf(blackjack.dealerScore()));
                 //add functionality to end the round
                 //TextView result = (TextView) findViewById(R.id.resultMessage);
                 //result.setText();
 
-                //clear the deck
                 blackjack.getPlayerCards().clear();
                 blackjack.getDealerCards().clear();
-                paintCard();
+                //paintEmpty();
             }
         });
 
         ((Button)findViewById(R.id.doubleButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                blackjack.doubleBet();
+                //blackjack.doubleBet();
+                blackjack.currentBet = Integer.parseInt(enterBetText.getText().toString()) * 2;
+                blackjack.bet = blackjack.bet - blackjack.currentBet;
                 betText.setText("Bet: " + String.valueOf(blackjack.bet));
+
+                blackjack.doubleBet();
+                paintCard();
+                playerTotalText.setText("Player: " + String.valueOf(blackjack.playerScore()));
+                dealerTotalText.setText("Dealer: " + String.valueOf(blackjack.dealerScore()));
+
+                blackjack.getPlayerCards().clear();
+                blackjack.getDealerCards().clear();
             }
         });
     }
@@ -93,27 +133,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void paintCard() {
-        ImageView p1 = ((ImageView) findViewById(R.id.p1));
-        ImageView p2 = ((ImageView) findViewById(R.id.p2));
-        ImageView p3 = ((ImageView) findViewById(R.id.p3));
-        ImageView p4 = ((ImageView) findViewById(R.id.p4));
-        ImageView p5 = ((ImageView) findViewById(R.id.p5));
-        ImageView p6 = ((ImageView) findViewById(R.id.p6));
-
-        ImageView d1 = ((ImageView) findViewById(R.id.d1));
-        ImageView d2 = ((ImageView) findViewById(R.id.d2));
-        ImageView d3 = ((ImageView) findViewById(R.id.d3));
-        ImageView d4 = ((ImageView) findViewById(R.id.d4));
-        ImageView d5 = ((ImageView) findViewById(R.id.d5));
-
-        if (blackjack.getPlayerCards().isEmpty()) {
-            p1.setImageResource(R.drawable.j);
-            p2.setImageResource(R.drawable.j);
-            p3.setImageResource(R.drawable.j);
-            p4.setImageResource(R.drawable.j);
-            p5.setImageResource(R.drawable.j);
-            p6.setImageResource(R.drawable.j);
-        }
 
         //for loop
         for (int i = 0; i < blackjack.getPlayerCards().size(); i++) {
@@ -135,46 +154,87 @@ public class MainActivity extends AppCompatActivity {
                 showCard(p6, cardValue, cardShape);
         }
 
-        if (blackjack.getDealerCards().isEmpty()) {
-            d1.setImageResource(R.drawable.j);
-            d2.setImageResource(R.drawable.j);
-            d3.setImageResource(R.drawable.j);
-            d4.setImageResource(R.drawable.j);
-            d5.setImageResource(R.drawable.j);
-        }
+        for (int j = 0; j < blackjack.getDealerCards().size(); j++) {
 
-        for (int j = 0;j < blackjack.getDealerCards().size(); j++) {
             int cardValue = blackjack.getDealerCards().get(j).getValue();
             int cardShape = blackjack.getDealerCards().get(j).getShape();
 
             if (j==0)
-                showCard(d1, cardValue, cardShape);
-            else if (j==1)
+                showCard(d1,cardValue,cardShape);
+            else if (j ==1)
                 showCard(d2, cardValue, cardShape);
-            else if (j==2)
+            else if (j == 2)
                 showCard(d3, cardValue, cardShape);
-            else if (j==3)
+            else if (j == 3)
                 showCard(d4, cardValue, cardShape);
             else if (j==4)
                 showCard(d5, cardValue, cardShape);
         }
 
-        if (blackjack.revealDealerCards == true) {
-            for (int j = 1; j < blackjack.getDealerCards().size(); j++) {
+//        else if (!blackjack.revealDealerCards) {
+//            int cardValue = blackjack.getDealerCards().get(0).getValue();
+//            int cardShape = blackjack.getDealerCards().get(0).getShape();
+//
+//            showCard(d1, cardValue, cardShape);
+//        }
+//
+//        else {
+//            for (int j = 0; j < blackjack.getDealerCards().size(); j++) {
+//
+//                int cardValue = blackjack.getDealerCards().get(j).getValue();
+//                int cardShape = blackjack.getDealerCards().get(j).getShape();
+//
+//                if (j==0)
+//                    showCard(d1, cardValue, cardShape);
+//                else if (j==1)
+//                    showCard(d2, cardValue, cardShape);
+//                else if (j==2)
+//                    showCard(d3, cardValue, cardShape);
+//                else if (j==3)
+//                    showCard(d4, cardValue, cardShape);
+//                else if (j==4)
+//                    showCard(d5, cardValue, cardShape);
+//            }
+//        }
 
-                int cardValue = blackjack.getDealerCards().get(j).getValue();
-                int cardShape = blackjack.getDealerCards().get(j).getShape();
+//        if (blackjack.getDealerCards().size() == 1) {
+//            int cardValue = blackjack.getDealerCards().get(0).getValue();
+//            int cardShape = blackjack.getDealerCards().get(0).getShape();
+//
+//            showCard(d1, cardValue, cardShape);
+//        }
+//
+//        else if (blackjack.revealDealerCards == true) {
+//            for (int j = 1; j < blackjack.getDealerCards().size(); j++) {
+//
+//                int cardValue = blackjack.getDealerCards().get(j).getValue();
+//                int cardShape = blackjack.getDealerCards().get(j).getShape();
+//
+//                if (j==1)
+//                    showCard(d2, cardValue, cardShape);
+//                else if (j==2)
+//                    showCard(d3, cardValue, cardShape);
+//                else if (j==3)
+//                    showCard(d4, cardValue, cardShape);
+//                else if (j==4)
+//                    showCard(d5, cardValue, cardShape);
+//            }
+//        }
+    }
 
-                if (j == 1)
-                    showCard(d2, cardValue, cardShape);
-                else if (j == 2)
-                    showCard(d3, cardValue, cardShape);
-                else if (j == 3)
-                    showCard(d4, cardValue, cardShape);
-                else if (j == 4)
-                    showCard(d5, cardValue, cardShape);
-            }
-        }
+    public void paintEmpty() {
+            p1.setImageResource(R.drawable.j);
+            p2.setImageResource(R.drawable.j);
+            p3.setImageResource(R.drawable.j);
+            p4.setImageResource(R.drawable.j);
+            p5.setImageResource(R.drawable.j);
+            p6.setImageResource(R.drawable.j);
+
+            d1.setImageResource(R.drawable.j);
+            d2.setImageResource(R.drawable.j);
+            d3.setImageResource(R.drawable.j);
+            d4.setImageResource(R.drawable.j);
+            d5.setImageResource(R.drawable.j);
     }
 
     public void showCard(ImageView p1, int cardValue, int cardShape) {
