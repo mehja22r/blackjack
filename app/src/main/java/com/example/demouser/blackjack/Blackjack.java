@@ -16,7 +16,13 @@ public class Blackjack {
 
     protected int bet;
     protected int currentBet;
+<<<<<<< HEAD
 //    boolean revealDealerCards = false;
+=======
+    boolean revealDealerCards = false;
+    boolean dealerWins = false;
+    boolean playerWins = true;
+>>>>>>> origin/master
 
 
 
@@ -85,11 +91,20 @@ public class Blackjack {
         bet += currentBet;
     }
 
+<<<<<<< HEAD
     public void dealerWins() {
+=======
+    public String dealerWins() {
+        return "Dealer won! You lost "+Integer.toString(currentBet);
+>>>>>>> origin/master
     }
 
     public void playerWins() {
         bet += currentBet *2;
+<<<<<<< HEAD
+=======
+        return "You won "+Integer.toString(currentBet*2);
+>>>>>>> origin/master
     }
 
     public void hit() {

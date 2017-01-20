@@ -154,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
 
         for (int j = 0; j < blackjack.getDealerCards().size(); j++) {
 
+<<<<<<< HEAD
             int cardValue = blackjack.getDealerCards().get(j).getValue();
             int cardShape = blackjack.getDealerCards().get(j).getShape();
 
@@ -167,6 +168,15 @@ public class MainActivity extends AppCompatActivity {
                 showCard(d4, cardValue, cardShape);
             else if (j==4)
                 showCard(d5, cardValue, cardShape);
+=======
+        //for (int j = 0;j < blackjack.getDealerCards().size(); j++) {
+        if (blackjack.getDealerCards().size() >= 1) {
+            int cardValue = blackjack.getDealerCards().get(0).getValue();
+            int cardShape = blackjack.getDealerCards().get(0).getShape();
+
+
+            showCard(d1, cardValue, cardShape);
+>>>>>>> origin/master
         }
 
 //        else if (!blackjack.revealDealerCards) {
