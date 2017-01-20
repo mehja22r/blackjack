@@ -187,13 +187,6 @@
         android:layout_alignParentEnd="true"
         tools:text="resultMessage" />
 
-        android:id="@+id/p5"
-        android:layout_alignTop="@+id/p4"
-        android:layout_toRightOf="@+id/p4"
-        android:layout_toEndOf="@+id/p4"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp" />
-
     <ImageView
         android:layout_width="80dp"
         android:layout_height="90dp"
