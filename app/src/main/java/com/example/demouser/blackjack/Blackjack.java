@@ -81,18 +81,15 @@ public class Blackjack {
         }
     }
 
-    public String tie() {
-        bet = bet + currentBet;
-        return "Push!";
+    public void tie() {
+        bet += currentBet;
     }
 
-    public String dealerWins() {
-        return "Dealer won!";
+    public void dealerWins() {
     }
 
-    public String playerWins() {
+    public void playerWins() {
         bet += currentBet *2;
-        return "Player won!";
     }
 
     public void hit() {

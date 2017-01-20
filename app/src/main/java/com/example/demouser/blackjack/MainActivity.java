@@ -39,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        blackjack = new Blackjack();
+        playerTotalText = (TextView) findViewById(R.id.playerTotal);
+        dealerTotalText = (TextView) findViewById(R.id.dealerTotal);
+        enterBetText = (EditText) findViewById(R.id.enterBet);
+        betText = (TextView) findViewById(R.id.bet);
+
+        playerTotalText.setText("Player: " + String.valueOf(blackjack.playerScore()));
+        dealerTotalText.setText("Dealer: 0");
+        betText.setText("Bet: " + String.valueOf(blackjack.bet));
+
         p1 = ((ImageView) findViewById(R.id.p1));
         p2 = ((ImageView) findViewById(R.id.p2));
         p3 = ((ImageView) findViewById(R.id.p3));
@@ -51,16 +61,6 @@ public class MainActivity extends AppCompatActivity {
         d3 = ((ImageView) findViewById(R.id.d3));
         d4 = ((ImageView) findViewById(R.id.d4));
         d5 = ((ImageView) findViewById(R.id.d5));
-
-        blackjack = new Blackjack();
-        playerTotalText = (TextView) findViewById(R.id.playerTotal);
-        dealerTotalText = (TextView) findViewById(R.id.dealerTotal);
-        enterBetText = (EditText) findViewById(R.id.enterBet);
-        betText = (TextView) findViewById(R.id.bet);
-
-        playerTotalText.setText("Player: " + String.valueOf(blackjack.playerScore()));
-        dealerTotalText.setText("Dealer: 0");
-        betText.setText("Bet: " + String.valueOf(blackjack.bet));
 
         ((Button)findViewById(R.id.dealButton)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
 
                 blackjack.getPlayerCards().clear();
                 blackjack.getDealerCards().clear();
-                //paintEmpty();
             }
         });
 
@@ -133,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void paintCard() {
-
         //for loop
         for (int i = 0; i < blackjack.getPlayerCards().size(); i++) {
 
@@ -223,18 +221,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void paintEmpty() {
-            p1.setImageResource(R.drawable.j);
-            p2.setImageResource(R.drawable.j);
-            p3.setImageResource(R.drawable.j);
-            p4.setImageResource(R.drawable.j);
-            p5.setImageResource(R.drawable.j);
-            p6.setImageResource(R.drawable.j);
+        p1.setImageResource(R.drawable.j);
+        p2.setImageResource(R.drawable.j);
+        p3.setImageResource(R.drawable.j);
+        p4.setImageResource(R.drawable.j);
+        p5.setImageResource(R.drawable.j);
+        p6.setImageResource(R.drawable.j);
 
-            d1.setImageResource(R.drawable.j);
-            d2.setImageResource(R.drawable.j);
-            d3.setImageResource(R.drawable.j);
-            d4.setImageResource(R.drawable.j);
-            d5.setImageResource(R.drawable.j);
+        d1.setImageResource(R.drawable.j);
+        d2.setImageResource(R.drawable.j);
+        d3.setImageResource(R.drawable.j);
+        d4.setImageResource(R.drawable.j);
+        d5.setImageResource(R.drawable.j);
     }
 
     public void showCard(ImageView p1, int cardValue, int cardShape) {
