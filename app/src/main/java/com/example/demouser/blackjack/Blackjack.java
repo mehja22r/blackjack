@@ -19,6 +19,8 @@ public class Blackjack {
     private final int MIN_BET = 10;
     protected int currentBet;
     boolean revealDealerCards = false;
+    boolean dealerWins = false;
+    boolean playerWins = true;
 
     //cannot exceed 5
     private int hitCount;
@@ -87,12 +89,12 @@ public class Blackjack {
     }
 
     public String dealerWins() {
-        return "Dealer won!";
+        return "Dealer won! You lost "+Integer.toString(currentBet);
     }
 
     public String playerWins() {
         bet += currentBet *2;
-        return "Player won!";
+        return "You won "+Integer.toString(currentBet*2);
     }
 
     public void hit() {
